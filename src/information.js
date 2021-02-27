@@ -75,7 +75,7 @@ Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&
 	<p>To restore the normal behaviour of Edge Chromium, simply add a new DWORD value in the key above and name it <code>BrowserReplacement</code>, with data being set to 1.</p>
 	<p>However, everytime the Edge Chromium installer is run, the <code>BrowserReplacement</code> value will get added in automatically. This means that you have to delete the value again to launch Edge Legacy.</p>
 	<p>Although Microsoft strongly recommends against this, there doesn't seem to be any permanent damage on the system.</p>
-	<blockquote style="background-color: #e0f2ff; padding: 1rem;"><p style="font-weight: bold;">Important</p><p>This key is over-written every time the Microsoft Edge Stable channel is updated. As a best practice, we recommend that you DO NOT delete this key to allow users to access both versions of Microsoft Edge.</p></blockquote>
+	<blockquote class="microsoft-info"><p style="font-weight: bold;">Important</p><p>This key is over-written every time the Microsoft Edge Stable channel is updated. As a best practice, we recommend that you DO NOT delete this key to allow users to access both versions of Microsoft Edge.</p></blockquote>
 	<p>Source: <a href="https://docs.microsoft.com/en-us/deployedge/microsoft-edge-sysupdate-access-old-edge" target="_blank">https://docs.microsoft.com/en-us/deployedge/microsoft-edge-sysupdate-access-old-edge</a></p>
 	<p>- The rest is to be written... -</p>`,
 	uninstallEdge: `<h2>Uninstall Edge Chromium</h2>
