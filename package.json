@@ -1,0 +1,42 @@
+{
+	"name": "edge-reminiscence",
+	"productName": "Edge Legacy Reminiscence",
+	"version": "0.1.1",
+	"description": "This tool enables you to open Microsoft Edge Legacy alongside the new Edge Chromium without uninstalling Edge Chromium.",
+	"main": "src/index.js",
+	"scripts": {
+		"start": "electron-forge start",
+		"package": "electron-forge package --arch=ia32",
+		"make": "electron-forge make --arch=ia32",
+		"publish": "electron-forge publish",
+		"lint": "echo \"No linting configured\""
+	},
+	"keywords": [],
+	"author": "Snqzs' PG",
+	"license": "MIT",
+	"config": {
+		"forge": {
+			"packagerConfig": {
+				"icon": "../Icons/icon.ico"
+			},
+			"makers": [
+				{
+					"name": "@electron-forge/maker-zip"
+				}
+			]
+		}
+	},
+	"dependencies": {
+		"electron-squirrel-startup": "^1.0.0",
+		"node-windows": "^1.0.0-beta.5",
+		"regedit": "^3.0.3"
+	},
+	"devDependencies": {
+		"@electron-forge/cli": "^6.0.0-beta.54",
+		"@electron-forge/maker-deb": "^6.0.0-beta.54",
+		"@electron-forge/maker-rpm": "^6.0.0-beta.54",
+		"@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+		"@electron-forge/maker-zip": "^6.0.0-beta.54",
+		"electron": "11.2.1"
+	}
+}

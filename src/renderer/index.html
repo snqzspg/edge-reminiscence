@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Edge Reminiscence</title>
+		<link href="font/nunito.css" rel="stylesheet">
+		<link href="font/share-tech-mono.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/main.css"> 
+		<script type="text/javascript" src="js/modal-manager.js"></script>
+		<script type="text/javascript" src="js/effect-manager.js"></script>
+		<script type="text/javascript" src="js/status-manager.js"></script>
+		<script type="text/javascript" src="js/renderer.js"></script>
+		<link rel="stylesheet" type="text/css" href="window-title-bar/PGAppScrollBars.css">
+		<link rel="stylesheet" type="text/css" href="window-title-bar/PGAppScrollBarsDarkTheme.css">
+		<link rel="stylesheet" type="text/css" href="window-title-bar/PGTitleBarV9.css">
+		<script type="text/javascript" src="window-title-bar/PGTitleBarV9.js"></script>
+	</head>
+	<body>
+		<header class="main">
+			<h1 class="app-title">Edge Legacy Reminiscence</h1>
+			<div id="placeholder_status" class="status">Starting...</div>
+			<!-- Move this description to about page. Only show on first launch. -->
+			<!--p><del>This tool enables you to open Microsoft Edge Legacy alongside the new Edge Chromium without uninstalling Edge Chromium.</del></p-->
+		</header>
+		<main>
+			<section id="" class="tile-container">
+				<article class="tile">
+					<div class="icon">
+						<svg width="100" height="100">
+							<rect class="stroke" style="fill:none;stroke-width:2;" width="62.5" height="40.625" x="18.75" y="29.6875" rx="5"></rect>
+							<path class="stroke neutral-bg-fill" style="stroke-width:2;" d="m 67.378802,51.300165 v 37.500003 l 10.76279,-11.516324 15.753723,0.532825 z"></path>
+							<path class="stroke" style="stroke-width:2;" d="M 18.750001,39.6875 H 81.250002"></path>
+							<path class="stroke" style="stroke-width:2;" d="M 22.366559,34.6875 H 56.25"></path>
+							<circle class="fill" cx="63.25" cy="34.6875" r="2" />
+							<circle class="fill" cx="69.25" cy="34.6875" r="2" />
+							<circle class="fill" cx="75.25" cy="34.6875" r="2" />
+						</svg>
+					</div>
+					<h2>Try Launching Edge Legacy</h2><!-- Only show warning on first click -->
+					<p>Attempts to launch Edge Legacy.</p>
+					<div class="action">
+						<button type="button" onclick="tryLaunchEdge(event);">Launch</button><br>
+						<a href="javascript: void(0);" onclick="tryLaunchEdgeInfo(this.parentNode.parentNode);" class="read-more">Read More</a>
+					</div>
+				</article>
+				<article class="tile">
+					<div class="icon">
+						<svg width="100" height="100">
+							<rect class="stroke" style="fill:none;stroke-width:2;" width="15" height="15" x="43.067223" y="6.43324178" rx="2" transform="rotate(28.406579)"> </rect>
+							<rect class="stroke" style="fill:none;stroke-width:2;" width="15" height="15" x="59.973862" y="20.440052" rx="2"></rect>
+							<rect class="stroke" style="fill:none;stroke-width:2;" width="15" height="15" x="65.313721" y="39.623707" rx="2" transform="rotate(11.32919)"></rect>
+							<rect class="stroke" style="fill:none;stroke-width:2;" width="15" height="15" x="6.9218206" y="34.570356" rx="2"></rect>
+							<rect class="stroke" style="fill:none;stroke-width:2;" width="15" height="15" x="6.9218206" y="52.512547" rx="2"></rect>
+							<rect class="stroke" style="fill:none;stroke-width:2;" width="15" height="15" x="24.858002" y="52.512547" rx="2"></rect>
+							<rect class="stroke" style="fill:none;stroke-width:2;" width="15" height="15" x="6.9218206" y="70.454735" rx="2"></rect>
+							<rect class="stroke" style="fill:none;stroke-width:2;" width="15" height="15" x="24.858002" y="70.454735" rx="2"></rect>
+							<rect class="stroke" style="fill:none;stroke-width:2;" width="15" height="15" x="42.794186" y="70.454735" rx="2"></rect>
+							<path class="stroke" style="fill:none;stroke-width:2;" d="M 93.078179,67.15676 86.642094,62.529428 C 86.541515,58.780315 85.133289,53.754031 79.275201,50.510961 73.417112,47.26789 66.644047,49.27737 63.60429,52.152721 l 9.970187,1.845326 c 3.013677,6.145117 2.314626,11.760376 -3.344468,16.667769 L 59.87824,69.585875 c 2.196109,4.902723 6.68338,7.652406 11.292191,8.177931 4.608811,0.525525 9.388099,-1.678455 11.440011,-4.088376 l 6.436431,4.726151"></path>
+						</svg>
+					</div>
+					<h2>Fix Edge Legacy</h2><!-- Only show warning on first click -->
+					<p>Applies registry modifications to unblock Edge Legacy</p>
+					<div class="action">
+						<button id="unblock_button" type="button" onclick="fixOldEdge(event);">Unblock</button>
+						<button id="revert_button" type="button" onclick="restoreNewEdge(event);">Revert</button><br>
+						<a href="javascript: void(0);" onclick="fixOldEdgeInfo(this.parentNode.parentNode);" class="read-more">Read More</a>
+					</div>
+				</article>
+				<article class="tile">
+					<div class="icon">
+						<svg width="100" height="100">
+							<path class="stroke" style="fill:none;stroke-width:2px;stroke-linecap:round;" d="m 38.802605,44.999768 -5.44e-4,28.000204"></path>
+							<path class="stroke" style="fill:none;stroke-width:2px;stroke-linecap:round;" d="m 50.000061,45.000175 -6.3e-5,27.999797"></path>
+							<path class="stroke" style="fill:none;stroke-width:2px;stroke-linecap:round;" d="m 61.197518,45.000175 -4.56e-4,27.999797"></path>
+							<path class="stroke" style="fill:none;stroke-width:2px;stroke-linecap:butt;" d="m 70,38.75 v 40.999943 c 0,1.662001 -1.338,3 -3,3 H 33 c -1.662,0 -3,-1.337999 -3,-3 V 38.75"></path>
+							<rect class="stroke" style="fill:none;stroke-width:2px;" width="50" height="8" x="25" y="30.25" rx="3"></rect>
+							<rect class="stroke" style="fill:none;stroke-width:2px;" width="10" height="4" x="45" y="26.25" rx="3"></rect>
+						</svg>
+					</div>
+					<h2>Uninstall Edge Chromium</h2>
+					<p>Attempts to uninstall Microsoft Edge Chromium.</p>
+					<div class="action">
+						<button type="button" onclick="uninstallNewEdgeWarning(event, this.parentNode.parentNode);">Uninstall</button><br>
+						<a href="javascript: void(0);" onclick="uninstallNewEdgeInfo(this.parentNode.parentNode);" class="read-more">Read More</a>
+					</div>
+				</article>
+			</section>
+		</main>
+		<!--div class="modal-overlay"></div>
+		<div class="modal-full" role="dialog"></div-->
+		<!-- This modal will be created by Javascript to fade in and cover the selected tile and expands to modal window to provide information about the action. Use getBoundingClientRect() (note that dimension * 1.05) on the selected tile to size the transition box to cover the tile for effect. Ref - https://material.io/design/motion/choreography.html#focal-elements -->
+		<script type="text/javascript">(function(){var titleBar = new PGTitleBar(window);titleBar.titleBar.classList.add("white-text");titleBar.insert();initStartup();})();</script>
+	</body>
+</html>
