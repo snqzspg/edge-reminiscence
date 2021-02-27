@@ -14,7 +14,7 @@ Microsoft will remove the Edge Legacy via a "Patch Tuesday" update on 13th of Ap
 
 ## Release
 
-The tool is incomplete and it will probably not be in time before the End of Support for Legacy Microsoft Edge. The release is currently unavailable, but should be uploaded soon... I hope.
+The tool is incomplete and it will probably not be in time before the End of Support for Legacy Microsoft Edge. [You can get the release here](https://github.com/snqzspg/edge-reminiscence/releases/tag/v0.1.2)
 
 Note that the release version is not signed (as that is not free), so it will be marked as an high-risk or potentially harmful application. Just allow this application to run and it will be good.
 
