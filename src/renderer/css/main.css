@@ -410,6 +410,11 @@ blockquote.codesnippet{
 	margin: 1em 2.5em;
 }
 
+.modal-full blockquote.microsoft-info{
+	background-color: #e0f2ff;
+	padding: 1rem;
+}
+
 .modal-full a:link{
 	color: #a18cd1;
 	border-color: #a18cd1;
@@ -495,7 +500,11 @@ blockquote.codesnippet{
 	}
 
 	.modal-full a:link{
-		color: #65467c;
-		border-color: #65467c;
+		color: #9165b1;
+		border-color: #9165b1;
+	}
+	
+	.modal-full blockquote.microsoft-info{
+		background-color: #57768d;
 	}
 }
