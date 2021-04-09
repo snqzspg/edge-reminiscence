@@ -1,34 +1,80 @@
 /* width */
-::-webkit-scrollbar {
-	width: 10px;
-	background-color: inherit;
+::-webkit-scrollbar{
+	width: 17px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-	border-radius: 5px;
-	background-color: transparent;
-	-webkit-transition: background 0.2s;
-	transition: background 0.2s;
+	background: none;
 }
 
-::-webkit-scrollbar-track:hover {
-	border-radius: 10px;
-	background-color: rgba(0, 0, 0, .2);
+/* Buttons */
+::-webkit-scrollbar-button{
+	width: 17px;
+	height: 17px;
+}
+
+::-webkit-scrollbar-button:vertical:decrement{
+	background-image: url(assets/up.svg);
+}
+
+::-webkit-scrollbar-button:vertical:decrement:hover{
+	background-image: url(assets/up-highlighted.svg);
+}
+
+::-webkit-scrollbar-button:vertical:decrement:active{
+	background-image: url(assets/up-active.svg);
+}
+
+::-webkit-scrollbar-button:vertical:increment{
+	background-image: url(assets/down.svg);
+}
+
+::-webkit-scrollbar-button:vertical:increment:hover{
+	background-image: url(assets/down-highlighted.svg);
+}
+
+::-webkit-scrollbar-button:vertical:increment:active{
+	background-image: url(assets/down-active.svg);
+}
+
+::-webkit-scrollbar-button:horizontal:decrement{
+	background-image: url(assets/left.svg);
+}
+
+::-webkit-scrollbar-button:horizontal:decrement:hover{
+	background-image: url(assets/left-highlighted.svg);
+}
+
+::-webkit-scrollbar-button:horizontal:decrement:active{
+	background-image: url(assets/left-active.svg);
+}
+
+::-webkit-scrollbar-button:horizontal:increment{
+	background-image: url(assets/right.svg);
+}
+
+::-webkit-scrollbar-button:horizontal:increment:hover{
+	background-image: url(assets/right-highlighted.svg);
+}
+
+::-webkit-scrollbar-button:horizontal:increment:active{
+	background-image: url(assets/right-active.svg);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background-color: rgba(0, 0, 0, .5);
+	background-color: rgba(0, 0, 0, 0.3);
+	border: 5px solid transparent;
+	background-clip: content-box;
 	border-radius: 10px;
-	height: 20px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	background-color: rgba(0, 0, 0, .4);
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 ::-webkit-scrollbar-thumb:active {
-	background-color: rgba(0, 0, 0, .8);
+	background-color: rgba(0, 0, 0, 0.5);
 }
