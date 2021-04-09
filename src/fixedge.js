@@ -87,11 +87,53 @@ function checkKeyExists(callback, regnotexist, nosubkey, regstructurechanged){
 	})
 }
 
+function checkLegacyEdgeInstall(exists, missing, error){
+	exec("powershell Get-AppxPackage *MicrosoftEdge*", function(err, stdout, stderr){
+		if (err) {
+			if (isFx(error)) error(err, stdout, stderr);
+		} else {
+			var patt = /PackageFamilyName\W{0,}:\W{0,}Microsoft.MicrosoftEdge_8wekyb3d8bbwe/g;
+			if (patt.test(stdout)) {
+				if (isFx(exists)) exists(stdout);
+			} else {
+				if (isFx(missing)) missing(stdout);
+			}
+		}
+	});
+}
+
+function checkChromiumEdgeInstall(exists, missing, error){
+	exec("powershell Get-AppxPackage *MicrosoftEdge*", function(err, stdout, stderr){
+		if (err) {
+			if (isFx(error)) error(err, stdout, stderr);
+		} else {
+			var patt = /PackageFamilyName\W{0,}:\W{0,}Microsoft.MicrosoftEdge.Stable_8wekyb3d8bbwe/g;
+			if (patt.test(stdout)) {
+				if (isFx(exists)) exists(stdout);
+			} else {
+				if (isFx(missing)) missing(stdout);
+			}
+		}
+	});
+}
+
 module.exports = {
 	/**
 	 * Perform registry modification to allow launching of Microsoft Edge Legacy without removing Edge Chromium
 	 */
 	fixEdgeLegacy: function(callback, logFx, log2Fx){
+		function appNotExist(){
+			if (isFx(logFx)) logFx("Edge Chromium is not installed", "warning");
+		}
+
+		function regError(){
+			if (isFx(logFx)) logFx("Error reading Edge Chromium Updater registry", "error");
+		}
+
+		function scanAppError(){
+			if (isFx(logFx)) logFx("An error occured while checking your Edge Chromium installation.", "error");
+		}
+
 		checkKeyExists(function(useWoW64Key, hackActive){
 			if (!hackActive) {
 				// NOTE: Potential more permanant soultion -> https://docs.microsoft.com/en-us/deployedge/microsoft-edge-sysupdate-access-old-edge
@@ -110,17 +152,47 @@ module.exports = {
 				if (isFx(log2Fx)) log2Fx("Your Microsoft Edge Legacy can be launched, no modifications are necessary.");
 			}
 		}, function(err, result){
-			if (isFx(logFx)) logFx("Edge Chromium is not installed", "info");
+			checkChromiumEdgeInstall(function(){
+				regError();
+			}, function(){
+				appNotExist();
+			}, function(){
+				scanAppError()
+			});
 		}, function(err, result){
-			if (isFx(logFx)) logFx("Edge Chromium is not installed", "info");
+			checkChromiumEdgeInstall(function(){
+				regError();
+			}, function(){
+				appNotExist();
+			}, function(){
+				scanAppError()
+			});
 		}, function(err, result){
-			if (isFx(logFx)) logFx("The registry structure of this version of Edge Chromium has changed.", "error");
+			checkChromiumEdgeInstall(function(){
+				regError();
+			}, function(){
+				appNotExist();
+			}, function(){
+				scanAppError()
+			});
 		});
 	},
 	/**
 	 * Reverses the modification done to enable launching of Microsoft Edge Legacy without removing Edge Chromium
 	 */
 	restoreDefaultBehaviour: function(callback, logFx, log2Fx){
+		function appNotExist(){
+			if (isFx(logFx)) logFx("Edge Chromium is not installed", "warning");
+		}
+
+		function regError(){
+			if (isFx(logFx)) logFx("Error reading Edge Chromium Updater registry", "error");
+		}
+
+		function scanAppError(){
+			if (isFx(logFx)) logFx("An error occured while checking your Edge Chromium installation.", "error");
+		}
+
 		checkKeyExists(function(useWoW64Key, hackActive){
 			if (hackActive) {
 				elevate("reg add " + (useWoW64Key ? edgeRegistryKeyFull : edgeRegistryKeyFull32bit) + " /v BrowserReplacement /t REG_DWORD /d 1", function(err, stdout, stderr){
@@ -138,11 +210,29 @@ module.exports = {
 				if (isFx(log2Fx)) log2Fx("Your Microsoft Edge Legacy behaviour is default.");
 			}
 		}, function(err, result){
-			if (isFx(logFx)) logFx("Edge Chromium is not installed", "info");
+			checkChromiumEdgeInstall(function(){
+				regError();
+			}, function(){
+				appNotExist();
+			}, function(){
+				scanAppError()
+			});
 		}, function(err, result){
-			if (isFx(logFx)) logFx("Edge Chromium is not installed", "info");
+			checkChromiumEdgeInstall(function(){
+				regError();
+			}, function(){
+				appNotExist();
+			}, function(){
+				scanAppError()
+			});
 		}, function(err, result){
-			if (isFx(logFx)) logFx("The registry structure of this version of Edge Chromium has changed.", "error");
+			checkChromiumEdgeInstall(function(){
+				regError();
+			}, function(){
+				appNotExist();
+			}, function(){
+				scanAppError()
+			});
 		});
 		
 	},
@@ -162,6 +252,18 @@ module.exports = {
 		});
 	},
 	tryUninstallChromiumEdge: function(callback, logFx){
+		function appNotExist(){
+			if (isFx(logFx)) logFx("Edge Chromium is not installed", "warning");
+		}
+
+		function regError(){
+			if (isFx(logFx)) logFx("Error reading Edge Chromium Updater registry", "error");
+		}
+
+		function scanAppError(){
+			if (isFx(logFx)) logFx("An error occured while checking your Edge Chromium installation.", "error");
+		}
+
 		// NOTE: Warn users about system level integration of Edge Chromium on Windows 10 20H2 systems before performing uninstall.
 		checkKeyExists(function(useWoW64Key, hackActive, values){
 			try {
@@ -182,27 +284,82 @@ module.exports = {
 				if (isFx(logFx)) logFx("Could not find uninstall command.", "error");
 			}
 		}, function(err, result){
-			if (isFx(logFx)) logFx("Edge Chromium is not installed", "info");
+			checkChromiumEdgeInstall(function(){
+				regError();
+			}, function(){
+				appNotExist();
+			}, function(){
+				scanAppError()
+			});
 		}, function(err, result){
-			if (isFx(logFx)) logFx("Edge Chromium is not installed", "info");
+			checkChromiumEdgeInstall(function(){
+				regError();
+			}, function(){
+				appNotExist();
+			}, function(){
+				scanAppError()
+			});
 		}, function(err, result){
-			if (isFx(logFx)) logFx("The registry structure of this version of Edge Chromium has changed.", "error");
+			checkChromiumEdgeInstall(function(){
+				regError();
+			}, function(){
+				appNotExist();
+			}, function(){
+				scanAppError()
+			});
 		});
 	},
 	checkUnblockStatus: function(callback, logFx){
-		checkKeyExists(function(useWoW64Key, hackActive, values){
-			if (hackActive) {
-				if (isFx(logFx)) logFx("Your Edge Legacy is unblocked.", "success");
-			} else {
-				if (isFx(logFx)) logFx("Your Edge Legacy is not unblocked.", "info");
-			}
-			if (isFx(callback)) callback(hackActive);
-		}, function(err, result){
-			if (isFx(logFx)) logFx("Edge Chromium is not installed", "info");
-		}, function(err, result){
-			if (isFx(logFx)) logFx("Edge Chromium is not installed", "info");
-		}, function(err, result){
-			if (isFx(logFx)) logFx("The registry structure of this version of Edge Chromium has changed.", "error");
+		function appNotExist(){
+			if (isFx(logFx)) logFx("Edge Chromium is not installed", "warning");
+		}
+
+		function regError(){
+			if (isFx(logFx)) logFx("Error reading Edge Chromium Updater registry", "error");
+		}
+
+		function scanAppError(){
+			if (isFx(logFx)) logFx("An error occured while checking your Edge Chromium installation.", "error");
+		}
+
+		checkLegacyEdgeInstall(function(){
+			checkKeyExists(function(useWoW64Key, hackActive, values){
+				if (hackActive) {
+					if (isFx(logFx)) logFx("Your Edge Legacy is unblocked.", "success");
+				} else {
+					if (isFx(logFx)) logFx("Your Edge Legacy is not unblocked.", "info");
+				}
+				if (isFx(callback)) callback(hackActive);
+			}, function(err, result){
+				checkChromiumEdgeInstall(function(){
+					regError();
+				}, function(){
+					appNotExist();
+				}, function(){
+					scanAppError()
+				});
+			}, function(err, result){
+				checkChromiumEdgeInstall(function(){
+					regError();
+				}, function(){
+					appNotExist();
+				}, function(){
+					scanAppError()
+				});
+			}, function(err, result){
+				checkChromiumEdgeInstall(function(){
+					regError();
+				}, function(){
+					appNotExist();
+				}, function(){
+					scanAppError()
+				});
+			});
+		}, function(){
+			if (isFx(logFx)) logFx("Edge Legacy does not exist on your system.", "warning");
+		}, function(){
+			if (isFx(logFx)) logFx("An error occured while checking your Edge Legacy installation.", "error");
 		});
+		
 	}
 };
