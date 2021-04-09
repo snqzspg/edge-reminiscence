@@ -1,19 +1,63 @@
 @media (prefers-color-scheme: dark) {
-	::-webkit-scrollbar-track:hover {
-		background-color: rgba(255, 255, 255, .2);
+	::-webkit-scrollbar-button:vertical:decrement{
+		background-image: url(assets/up-dark.svg);
+	}
+
+	::-webkit-scrollbar-button:vertical:decrement:hover{
+		background-image: url(assets/up-highlighted-dark.svg);
+	}
+
+	::-webkit-scrollbar-button:vertical:decrement:active{
+		background-image: url(assets/up-active-dark.svg);
+	}
+
+	::-webkit-scrollbar-button:vertical:increment{
+		background-image: url(assets/down-dark.svg);
+	}
+
+	::-webkit-scrollbar-button:vertical:increment:hover{
+		background-image: url(assets/down-highlighted-dark.svg);
+	}
+
+	::-webkit-scrollbar-button:vertical:increment:active{
+		background-image: url(assets/down-active-dark.svg);
+	}
+
+	::-webkit-scrollbar-button:horizontal:decrement{
+		background-image: url(assets/left-dark.svg);
+	}
+
+	::-webkit-scrollbar-button:horizontal:decrement:hover{
+		background-image: url(assets/left-highlighted-dark.svg);
+	}
+
+	::-webkit-scrollbar-button:horizontal:decrement:active{
+		background-image: url(assets/left-active-dark.svg);
+	}
+
+	::-webkit-scrollbar-button:horizontal:increment{
+		background-image: url(assets/right-dark.svg);
+	}
+
+	::-webkit-scrollbar-button:horizontal:increment:hover{
+		background-image: url(assets/right-highlighted-dark.svg);
+	}
+
+	::-webkit-scrollbar-button:horizontal:increment:active{
+		background-image: url(assets/right-active-dark.svg);
 	}
 
 	/* Handle */
 	::-webkit-scrollbar-thumb {
-		background-color: rgba(255, 255, 255, .5);
+		background-color: rgba(255, 255, 255, 0.3);
 	}
 
 	/* Handle on hover */
 	::-webkit-scrollbar-thumb:hover {
-		background-color: rgba(255, 255, 255, .4);
+		background-color: rgba(255, 255, 255, 0.4);
 	}
 
 	::-webkit-scrollbar-thumb:active {
-		background-color: rgba(255, 255, 255, .8);
+		background-color: rgba(255, 255, 255, 0.5);
 	}
 }
