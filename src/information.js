@@ -20,7 +20,7 @@ var uninstallEdgeInfo = `<p>Normally when software gets installed it is possible
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;File(s)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5,020,732&nbsp;bytes<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;Dir(s)&nbsp;&nbsp;&nbsp;*,***,***,***&nbsp;bytes&nbsp;free</code></blockquote>
 <p>The version number is the one with numbers and dots, starts with 80+ or 90+ in the future. Replace [Version Number] in the uninstall command above with the number.</p>
-<p>- The rest is to be written... -</p>`;
+<p><em>and the rest is to be written…</em></p>`;
 var uninstallEdgeAction = `<p id="proceedToUninst" style="text-align: center; transition: opacity 0.2s cubic-bezier(0, 0, 0.2, 1); pointer-events: none; opacity: 0;"><button type="button" onclick="uninstallNewEdge();">I've read and understood what I am doing and I'm doing so anyways</button></p>`;
 
 module.exports = {
@@ -62,7 +62,7 @@ NonRemovable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;True<br>
 IsPartiallyStaged&nbsp;:&nbsp;False<br>
 SignatureKind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;System<br>
 Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Ok</code></blockquote>
-<p>- The rest is to be written... -</p>`,
+<p><em>and the rest is to be written…</em></p>`,
 	fixEdge: `<h2>Fix Edge Legacy</h2>
 	<p>This action will attempt to allow launching of Microsoft Edge Legacy by modifying a registry setting in Edge Chromium.</p>
 	<p><strong>Note</strong>: When Microsoft Edge Chromium updates it will undo this. You will have to unblock again should that happens.</p>
@@ -77,7 +77,7 @@ Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&
 	<p>Although Microsoft strongly recommends against this, there doesn't seem to be any permanent damage on the system.</p>
 	<blockquote class="microsoft-info"><p style="font-weight: bold;">Important</p><p>This key is over-written every time the Microsoft Edge Stable channel is updated. As a best practice, we recommend that you DO NOT delete this key to allow users to access both versions of Microsoft Edge.</p></blockquote>
 	<p>Source: <a href="https://docs.microsoft.com/en-us/deployedge/microsoft-edge-sysupdate-access-old-edge" target="_blank">https://docs.microsoft.com/en-us/deployedge/microsoft-edge-sysupdate-access-old-edge</a></p>
-	<p>- The rest is to be written... -</p>`,
+	<p><em>and the rest is to be written…</em></p>`,
 	uninstallEdge: `<h2>Uninstall Edge Chromium</h2>
 	<p>This will uninstall Microsoft Edge Chromium by fetching the uninstall command from the EdgeUpdate registry.</p>
 	<p><strong>Warning:</strong> If you are using Windows 10 20H2 update and later Edge Chromium is integrated in the system. While uninstalling Edge Chromium is possible, it could cause damage to the system or affect system functionality.</p>` + uninstallEdgeInfo,
