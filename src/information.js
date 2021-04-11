@@ -63,7 +63,7 @@ IsPartiallyStaged&nbsp;:&nbsp;False<br>
 SignatureKind&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;System<br>
 Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Ok</code></blockquote>
 <p><em>and the rest is to be written…</em></p>`,
-	fixEdge: `<h2>Fix Edge Legacy</h2>
+	fixEdge: `<h2>Unblock Edge Legacy</h2>
 	<p>This action will attempt to allow launching of Microsoft Edge Legacy by modifying a registry setting in Edge Chromium.</p>
 	<p><strong>Note</strong>: When Microsoft Edge Chromium updates it will undo this. You will have to unblock again should that happens.</p>
 	<p><strong>Note</strong>: If you pin Microsoft Edge Legacy after successfully launching it, every time the Windows Explorer restarts it will turn into Microsoft Edge Chromium. Just unpin the extra Edge Chromium and re-launch Microsoft Edge Legacy again.</p>
