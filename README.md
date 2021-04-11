@@ -1,7 +1,9 @@
 # Edge Legacy Reminiscence
 This is a electron-based GUI tool that enables you to open Microsoft Edge Legacy alongside the new Edge Chromium without uninstalling Edge Chromium. It does so by performing registry edits.
 ### Note
-Microsoft will end its support on Edge Legacy on the 9th of March 2021. This tool modifies the registry by deleting BrowserReplacement value in the key
+Microsoft ended its support on Edge Legacy on the 9th of March 2021, and will remove Edge Legacy entirely on 13th of April 2021.
+
+This tool modifies the registry by deleting BrowserReplacement value in the key
 ```
 32-bit machines: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\EdgeUpdate\ClientState\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}
 64-bit machines: HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate\ClientState\{56EB18F8-B008-4CBD-B6D2-8C97FE7E9062}
