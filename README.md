@@ -1,7 +1,7 @@
 # Edge Legacy Reminiscence
 This is a electron-based GUI tool that enables you to open Microsoft Edge Legacy alongside the new Edge Chromium without uninstalling Edge Chromium. It does so by performing registry edits.
 ### Note
-Microsoft ended its support on Edge Legacy on the 9th of March 2021, and will remove Edge Legacy entirely on 13th of April 2021.
+Microsoft ended its support on Edge Legacy on the 9th of March 2021, and removed Edge Legacy entirely on 13th of April 2021.
 
 This tool modifies the registry by deleting BrowserReplacement value in the key
 ```
@@ -12,7 +12,7 @@ which is not recommended by Microsoft as stated [here](https://docs.microsoft.co
 
 ## Legacy Edge Removal via Windows Update
 
-Microsoft will remove the Edge Legacy via a "Patch Tuesday" update on 13th of April 2021 for Windows 10 1803, 1809, 1903, 1909, 2004 and 20H2 editions. More information by Microsoft [here](https://techcommunity.microsoft.com/t5/microsoft-365-blog/new-microsoft-edge-to-replace-microsoft-edge-legacy-with-april-s/ba-p/2114224).
+Microsoft removed Edge Legacy via a "Patch Tuesday" update on 13th of April 2021 for Windows 10 1803, 1809, 1903, 1909, 2004 and 20H2 editions. More information by Microsoft [here](https://techcommunity.microsoft.com/t5/microsoft-365-blog/new-microsoft-edge-to-replace-microsoft-edge-legacy-with-april-s/ba-p/2114224).
 
 ## Release
 
