@@ -81,7 +81,14 @@ function uninstallNewEdgeWarning(event, tile){
 }
 
 function checkEdgeStatus(callback){
+	function hideAllActionButtons(){
+		document.getElementById("launch_button").style.display = "none";
+		document.getElementById("unblock_button").style.display = "none";
+		document.getElementById("revert_button").style.display = "none";
+	}
+	hideAllActionButtons();
 	fixedge.checkUnblockStatus(function(hackActive){
+		document.getElementById("launch_button").style.display = "inline-block";
 		if (hackActive) {
 			document.getElementById("unblock_button").style.display = "none";
 			document.getElementById("revert_button").style.display = "inline-block";
@@ -90,7 +97,7 @@ function checkEdgeStatus(callback){
 			document.getElementById("revert_button").style.display = "none";
 		}
 		if (isFx(callback)) {callback();}
-	}, logStatus);
+	}, hideAllActionButtons, hideAllActionButtons, logStatus);
 }
 
 function initStartup(){
