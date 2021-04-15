@@ -92,9 +92,15 @@ function checkLegacyEdgeInstall(exists, missing, error){
 		if (err) {
 			if (isFx(error)) error(err, stdout, stderr);
 		} else {
-			var patt = /PackageFamilyName\W{0,}:\W{0,}Microsoft.MicrosoftEdge_8wekyb3d8bbwe/g;
+			var patt = /PackageFamilyName\W{0,}:\WMicrosoft.MicrosoftEdge_8wekyb3d8bbwe/g;
 			if (patt.test(stdout)) {
-				if (isFx(exists)) exists(stdout);
+				var installLocPatt = /InstallLocation\W{0,}:.{0,}Microsoft.MicrosoftEdge_8wekyb3d8bbwe/g;
+				var installLoc = stdout.match(installLocPatt)[0].replace(/InstallLocation\W{0,}:\W/, "");
+				if (fs.existsSync(path.join(installLoc, "MicrosoftEdge.exe"))) {
+					if (isFx(exists)) exists(stdout);
+				} else {
+					if (isFx(missing)) missing(stdout);
+				}
 			} else {
 				if (isFx(missing)) missing(stdout);
 			}
