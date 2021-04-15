@@ -38,8 +38,8 @@
 					</div>
 					<h2>Try Launching Edge Legacy</h2><!-- Only show warning on first click -->
 					<p>Attempts to launch Edge Legacy.</p>
-					<div id="LaunchEdgeAction" class="action">
-						<button type="button" onclick="tryLaunchEdge(event);">Launch</button><br>
+					<div class="action">
+						<button id="launch_button" type="button" onclick="tryLaunchEdge(event);">Launch</button><br>
 						<a href="javascript: void(0);" onclick="tryLaunchEdgeInfo(this.parentNode.parentNode);" class="read-more">Read More</a>
 					</div>
 				</article>
@@ -60,7 +60,7 @@
 					</div>
 					<h2>Unblock Edge Legacy</h2><!-- Only show warning on first click -->
 					<p>Applies registry modifications to unblock Edge Legacy</p>
-					<div id="UnblockEdgeAction" class="action">
+					<div class="action">
 						<button id="unblock_button" type="button" onclick="fixOldEdge(event);">Unblock</button>
 						<button id="revert_button" type="button" onclick="restoreNewEdge(event);">Revert</button><br>
 						<a href="javascript: void(0);" onclick="fixOldEdgeInfo(this.parentNode.parentNode);" class="read-more">Read More</a>
